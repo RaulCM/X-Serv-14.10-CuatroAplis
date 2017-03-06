@@ -64,8 +64,8 @@ class webApp:
         resource = request.split(' ', 2)[1]
         for prefix in self.apps.keys():
             if resource.startswith(prefix):
-                print("Running app for prefix: " + prefix + \
-                    ", rest of resource: " + resource[len(prefix):] + ".")
+                print("Running app for prefix: " + prefix +
+                      ", rest of resource: " + resource[len(prefix):] + ".")
                 return (self.apps[prefix], resource[len(prefix):])
         print("Running default app")
         return (self.myApp, resource)
@@ -97,8 +97,8 @@ class webApp:
             parsedRequest = theApp.parse(request, rest)
             (returnCode, htmlAnswer) = theApp.process(parsedRequest)
             print('Answering back...')
-            recvSocket.send(bytes("HTTP/1.1 " + returnCode + " \r\n\r\n"
-                            + htmlAnswer + "\r\n", 'utf-8'))
+            recvSocket.send(bytes("HTTP/1.1 " + returnCode + " \r\n\r\n" +
+                                  htmlAnswer + "\r\n", 'utf-8'))
             recvSocket.close()
 
 if __name__ == "__main__":
