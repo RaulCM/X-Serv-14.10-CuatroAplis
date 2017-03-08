@@ -64,7 +64,7 @@ class webApp:
         resource = request.split(' ', 2)[1]
         for prefix in self.apps.keys():
             if resource.startswith(prefix):
-                print("Running app for prefix: " + prefix +
+                print("Running app for prefix: " + prefix + \
                       ", rest of resource: " + resource[len(prefix):] + ".")
                 return (self.apps[prefix], resource[len(prefix):])
         print("Running default app")
